@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Define the Admin schema
+
 const adminSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -12,10 +12,10 @@ const adminSchema = new mongoose.Schema({
     required: true,
   }
 }, {
-  collection: 'admin'  // Explicitly set collection name
+  collection: 'admin'  
 });
 
-// Create and export the model
+
 const Admin = mongoose.model('Admin', adminSchema);
 
 module.exports = Admin;
