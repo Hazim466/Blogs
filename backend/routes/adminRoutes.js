@@ -2,23 +2,23 @@ const express = require('express');
 const Admin = require('../models/Admin');
 const router = express.Router();
 
-// Route to login an admin
+
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
-  // Validate request data
+
   if (!email || !password) {
     return res.status(400).send({ error: 'email and password are required.' });
   }
 
   try {
-    // Find the admin by name
+  
     const admin = await Admin.findOne({ email });
     if (!admin) {
       return res.status(400).send({ error: 'Invalid name or password.' });
     }
 
-    // Compare the provided password with the stored password (not hashed)
+    
     if (password !== admin.password) {
       return res.status(400).send({ error: 'Invalid name or password.' });
     }
